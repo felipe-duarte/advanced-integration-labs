@@ -32,12 +32,14 @@ inbound
  route definition (resources/META-INF/spring/camelContext.xml)
 
 *How to build and do hot deployment into Karaf:*
-  ```mvn clean install```
-  copy generated jar from target/inbound-1.0-SNAPSHOT.jar into **$fuse_home/deploy**
+  ```
+  mvn clean install
+  ```
+copy generated jar from *target/inbound-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**
  
 xlate
 ---
-  Consume message from q.empi.deim.in queue, unmarshall message, execute transformation (TransformToExecuteMatch), marshall the message and send it to q.empi.nexgate.out 
+  Consume message from *q.empi.deim.in queue*, unmarshall message, execute transformation (TransformToExecuteMatch), marshall the message and send it to *q.empi.nexgate.out* 
  
  route definition (resources/META-INF/spring/camelContext.xml)
  
@@ -45,7 +47,7 @@ xlate
 ```
 mvn clean install 
 ```
-copy generated jar from target/xlate-1.0-SNAPSHOT.jar into **$fuse_home/deploy**
+copy generated jar from *target/xlate-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**
     
 outbound
 ---
@@ -54,9 +56,10 @@ outbound
   route definition (resources/META-INF/spring/camelContext.xml)
 
 *How to build and do hot deployment into Karaf:*
- ``` mvn clean install```
- 
- copy generated jar from target/outbound-1.0-SNAPSHOT.jar into **$fuse_home/deploy**  
+ ``` 
+ mvn clean install
+ ``` 
+copy generated jar from *target/outbound-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**  
 
 Testing
 --
