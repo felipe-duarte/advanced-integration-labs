@@ -1,8 +1,8 @@
 Advanced Integration Labs with Red Hat Fuse
----
+--
 
 Requirements
----
+--
 - OpenJDK 1.7+
 - Fuse 6.2.1
 - Maven 3+
@@ -12,15 +12,18 @@ https://github.com/gpe-mw-training/experienced-integration-labs/tree/master/code
 
 How to build solutions
 --
-Solution deployments are done into Karaf.
+Solution deployments done into Karaf.
 
-First we need to create our queues into Fuse Console (http://127.0.0.1:8181/)
-Go into ActiveMQ tab
- Create queues: q.empi.deim.in, q.empi.nextgate.dlq, q.empi.nextgate.out and q.empi.transform.dlq
+First we need to create our queues into Fuse Console (http://127.0.0.1:8181/). Login with admin/admin credentials, click into ActiveMQ tab and create following queues: 
+
+*q.empi.deim.in, 
+*q.empi.nextgate.dlq, 
+*q.empi.nextgate.out
+*q.empi.transform.dlq
 
 Subprojects
 ---
-Under core/
+Solutions are given under core/ directory of the project
 
 inbound
 ---
@@ -52,6 +55,9 @@ outbound
   mvn clean install (resources/META-INF/spring/camelContext.xml)
   copy generated jar from target/outbound-1.0-SNAPSHOT.jar into $fuse_home/deploy 
   
+
+Testing
+--
 Verify routes with SOAPUI using given project found under tooling/ directory : Customer-App-Demo-soapui-project.xml
 
 Results must be like those given below:
