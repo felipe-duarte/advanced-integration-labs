@@ -1,6 +1,6 @@
 Advanced Integration Labs with Red Hat Fuse
 --
-Project to accomplish tasks defined in the lab homework of Advanced Agile Integration course.
+Project to accomplish tasks defined for the lab homework assignment of Advanced Agile Integration course.
 
 Improvements can be done using assync calls from REST service, given results to client before execution of entire routes chain deinition. Also, we need unit tests to be written, in order to achieve better confidence with defined rules under our routes.
 
@@ -33,49 +33,57 @@ inbound
 ---
 https://github.com/felipe-duarte/advanced-integration-labs/tree/master/core/inbound
 
-Synchronous call to routes from *direct:integrateRoute*, which exposes JAX-RS service at following URL: *localhost:9098/cxf/demos/match* generate message to *q.empi.deim.in queue*.
+Synchronous call to routes from *direct:integrateRoute*, which exposes JAX-RS Rest service at following URL: *localhost:9098/cxf/demos/match* . Then we marshall ``_marshalToPerson`` with customized dataFormat, and send the contents message to *q.empi.deim.in queue*, defined with InOut pattern, as we must wait response for the entire route path execution.
 
-Extract resultCode from Nextgate-WS response and generate ESBResponse to JAX-RS service based into resultCode.
+At the end of execution, we extract resultCode from Nextgate-WS response, and generate ESBResponse to JAX-RS client, based into resultCode.
+
 Route definition located at *resources/META-INF/spring/camelContext.xml*
 
 *How to build and do hot deployment into Karaf:*
   ```
   mvn clean install
   ```
-copy generated jar from *target/inbound-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**
+Now we can copy generated bundle jar file from  *target/inbound-1.0-SNAPSHOT.jar*  into  **$fuse_home/deploy**
  
 xlate
 ---
 https://github.com/felipe-duarte/advanced-integration-labs/tree/master/core/xlate
   
-Consume message from *q.empi.deim.in queue*, unmarshall message, execute transformation (TransformToExecuteMatch), marshall the message and send it to *q.empi.nexgate.out* 
+Consume message from *q.empi.deim.in queue*, unmarshall message, execute transformation (TransformToExecuteMatch), marshall the message and send it to *q.empi.nexgate.out*.
+
 Route definition located at *resources/META-INF/spring/camelContext.xml* 
  
 *How to build and do hot deployment into Karaf:*
 ```
 mvn clean install 
 ```
-copy generated jar from *target/xlate-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**
+Now we can copy generated bundle jar file from  *target/xlate-1.0-SNAPSHOT.jar*  into  **$fuse_home/deploy**
     
 outbound
 ---
 https://github.com/felipe-duarte/advanced-integration-labs/tree/master/core/outbound
 
-Consume message from *q.empi.nextgate.out* and send it to Nextgate-WS URL
+Consume message from *q.empi.nextgate.out* and send it to Nextgate-WS URL.
+
 Route definition located at *resources/META-INF/spring/camelContext.xml*
 
 *How to build and do hot deployment into Karaf:*
  ``` 
  mvn clean install
  ``` 
-copy generated jar from *target/outbound-1.0-SNAPSHOT.jar* into **$fuse_home/deploy**  
+Now we can copy generated bundle jar file from *target/outbound-1.0-SNAPSHOT.jar*  into  **$fuse_home/deploy**  
+
+
+At the end of those tasks, we should have the inboundRest, xlatePerson and outboundSOAP routes defined into our contexts, which can be found in Camel tab of Fuse Console.
 
 Testing
 --
-Verify routes with SOAPUI using given project found under tooling/ directory : Customer-App-Demo-soapui-project.xml
+After projects deployments into Karaf, we can verify routes execution with SOAP-UI, using given project defined in Customer-App-Demo-soapui-project.xml, found under tooling/ folder. 
 
-Results must be like those given below:
---
+We may also verify logs and route execution from Camel Contexts, at Camel tab in Fuse Console.
+
+Results of SOAP-UI Requests (MATCH and NO MATCH) , must be like those following samples:
+
 MATCH - Sample Response
 ---
 ```
