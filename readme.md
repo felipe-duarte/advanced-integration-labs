@@ -64,20 +64,20 @@ Results must be like those given below:
 --
 MATCH - Sample Response
 ---
-``xml
+```
 <ESBResponse xmlns="http://www.response.app.customer.com">
    <BusinessKey>92d01013-ce81-4f86-8ea1-fed59b03464f</BusinessKey>
    <Published>true</Published>
    <Comment>MATCH</Comment>
 </ESBResponse>
-``
+```
 
 NO MATCH - Sample Response
 ---
-``xml
+```
 <ESBResponse xmlns="http://www.response.app.customer.com">
    <BusinessKey>3925a94b-8a06-40e5-a791-672da7e379e6</BusinessKey>
    <Published>true</Published>
    <Comment>NO MATCH</Comment>
 </ESBResponse>
-``
+```
