@@ -12,6 +12,7 @@
 
 # Directories
 target/
+bin/
 
 .classpath
 .project
