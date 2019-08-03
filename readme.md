@@ -63,20 +63,21 @@ Verify routes with SOAPUI using given project found under tooling/ directory : C
 Results must be like those given below:
 --
 MATCH - Sample Response
---
-[code]
+---
+``xml
 <ESBResponse xmlns="http://www.response.app.customer.com">
    <BusinessKey>92d01013-ce81-4f86-8ea1-fed59b03464f</BusinessKey>
    <Published>true</Published>
    <Comment>MATCH</Comment>
 </ESBResponse>
-[/code]
+``
+
 NO MATCH - Sample Response
---
-[code]
+---
+``xml
 <ESBResponse xmlns="http://www.response.app.customer.com">
    <BusinessKey>3925a94b-8a06-40e5-a791-672da7e379e6</BusinessKey>
    <Published>true</Published>
    <Comment>NO MATCH</Comment>
 </ESBResponse>
-[/code]
+``
