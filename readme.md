@@ -2,7 +2,7 @@ Advanced Integration Labs with Red Hat Fuse
 --
 Project to accomplish tasks defined for the lab homework assignment of Advanced Agile Integration course.
 
-Improvements can be done using assync calls from REST service, given results to client before execution of entire routes chain deinition. Also, we need unit tests to be written, in order to achieve better confidence with defined rules under our routes.
+Improvements can be done, as referred in lab description, using assync calls from REST service, given results to client before execution of entire routes chain definition. Also, we should have unit tests for every single route definition, in order to achieve better confidence with defined rules under camelContext.xml files.
 
 Requirements
 --
