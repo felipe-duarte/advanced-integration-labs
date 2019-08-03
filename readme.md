@@ -4,7 +4,7 @@ Advanced Integration Labs with Red Hat Fuse
 Requirements
 --
 - OpenJDK 1.7+
-- Fuse 6.2.1
+- Fuse 6.2.1 ($fuse_home)
 - Maven 3+
 
 Initial setup done with instructions given from:
@@ -16,10 +16,10 @@ Solution deployments done into Karaf.
 
 First we need to create our queues into Fuse Console (http://127.0.0.1:8181/). Login with admin/admin credentials, click into ActiveMQ tab and create following queues: 
 
-*q.empi.deim.in, 
-*q.empi.nextgate.dlq, 
-*q.empi.nextgate.out
-*q.empi.transform.dlq
+ - q.empi.deim.in, 
+ - q.empi.nextgate.dlq, 
+ - q.empi.nextgate.out
+ - q.empi.transform.dlq
 
 Subprojects
 ---
@@ -31,9 +31,9 @@ inbound
 
  route definition (resources/META-INF/spring/camelContext.xml)
 
-*How to build and do hot deployment into Karaf:
-  mvn clean install
-  copy generated jar from target/inbound-1.0-SNAPSHOT.jar into $fuse_home/deploy
+*How to build and do hot deployment into Karaf:*
+  ```mvn clean install```
+  copy generated jar from target/inbound-1.0-SNAPSHOT.jar into **$fuse_home/deploy**
  
 xlate
 ---
@@ -41,9 +41,11 @@ xlate
  
  route definition (resources/META-INF/spring/camelContext.xml)
  
-*How to build and do hot deployment into Karaf:
-  mvn clean install (resources/META-INF/spring/camelContext.xml)
-  copy generated jar from target/xlate-1.0-SNAPSHOT.jar into $fuse_home/deploy 
+*How to build and do hot deployment into Karaf:*
+```
+mvn clean install 
+```
+copy generated jar from target/xlate-1.0-SNAPSHOT.jar into **$fuse_home/deploy**
     
 outbound
 ---
@@ -51,10 +53,10 @@ outbound
 
   route definition (resources/META-INF/spring/camelContext.xml)
 
-*How to build and do hot deployment into Karaf:
-  mvn clean install (resources/META-INF/spring/camelContext.xml)
-  copy generated jar from target/outbound-1.0-SNAPSHOT.jar into $fuse_home/deploy 
-  
+*How to build and do hot deployment into Karaf:*
+ ``` mvn clean install```
+ 
+ copy generated jar from target/outbound-1.0-SNAPSHOT.jar into **$fuse_home/deploy**  
 
 Testing
 --
